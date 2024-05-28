@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+message SLenRequest {
+  bytes key = 1;
+}
+
+message SLenResponse {
+  fixed64 count = 1;
+}

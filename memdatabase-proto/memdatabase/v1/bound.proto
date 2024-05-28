@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+message Bound {
+  oneof bound {
+    bytes included = 1;
+    bytes excluded = 2;
+  }
+}

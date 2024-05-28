@@ -1,0 +1,66 @@
+[package]
+name = "memdatabase"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies.log]
+version = "0.4.21"
+default-features = false
+features = [
+]
+
+[dependencies.futures]
+version = "0.3.30"
+default-features = false
+features = [
+  "std",
+  "async-await",
+  "executor",
+]
+
+[dependencies.tokio]
+version = "1.37.0"
+default-features = false
+features = [
+  "macros",
+  "rt-multi-thread",
+]
+
+[dependencies.tokio-stream]
+version = "0.1.15"
+default-features = false
+features = [
+  "time",
+]
+
+[dependencies.prost]
+version = "0.12.6"
+default-features = false
+features = [
+  "derive",
+  "std",
+]
+
+[dependencies.prost-types]
+version = "0.12.6"
+default-features = false
+features = [
+  "std",
+]
+
+[dependencies.tonic]
+version = "0.11.0"
+default-features = false
+features = [
+  "transport",
+  "codegen",
+  "prost",
+]
+
+[build-dependencies.tonic-build]
+version = "0.11.0"
+default-features = false
+features = [
+  "transport",
+  "prost",
+]

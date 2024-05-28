@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "memdatabase/v1/bound.proto";
+
+message RangeRequest {
+  Bound lower = 1;
+  Bound upper = 2;
+}
+
+message RangeResponse {
+  bytes key = 1;
+}

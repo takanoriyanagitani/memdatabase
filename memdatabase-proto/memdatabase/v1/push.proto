@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message PushRequest {
+  bytes key = 1;
+  google.protobuf.Value value = 2;
+  bool front = 3;
+}
+
+message PushResponse {
+  fixed64 count = 1;
+  google.protobuf.Timestamp push_time = 2;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/struct.proto";
+
+message DGetRequest {
+  bytes key = 1;
+  bytes dkey = 2;
+}
+
+message DGetResponse {
+  google.protobuf.Value value = 1;
+}

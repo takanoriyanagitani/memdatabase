@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+message DHasRequest {
+  bytes key = 1;
+  bytes dkey = 2;
+}
+
+message DHasResponse {
+  bool found = 1;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message SDelRequest {
+  bytes key = 1;
+  bytes val = 2;
+}
+
+message SDelResponse {
+  fixed64 count = 1;
+  google.protobuf.Timestamp sdel_time = 2;
+}

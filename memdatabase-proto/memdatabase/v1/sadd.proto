@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message SAddRequest {
+  bytes key = 1;
+  bytes val = 2;
+}
+
+message SAddResponse {
+  fixed64 count = 1;
+  google.protobuf.Timestamp sadd_time = 2;
+}

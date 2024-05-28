@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message PopRequest {
+  bytes key = 1;
+  bool front = 2;
+}
+
+message PopResponse {
+  google.protobuf.Value value = 1;
+  google.protobuf.Timestamp pop_time = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+message QLenRequest {
+  bytes key = 1;
+}
+
+message QLenResponse {
+  fixed64 count = 1;
+}

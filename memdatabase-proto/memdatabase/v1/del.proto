@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message DelRequest {
+  bytes key = 1;
+}
+
+message DelResponse {
+  google.protobuf.Timestamp del_time = 1;
+}

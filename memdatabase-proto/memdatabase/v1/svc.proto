@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "memdatabase/v1/del.proto";
+import "memdatabase/v1/dget.proto";
+import "memdatabase/v1/dhas.proto";
+import "memdatabase/v1/dset.proto";
+import "memdatabase/v1/get.proto";
+import "memdatabase/v1/pop.proto";
+import "memdatabase/v1/push.proto";
+import "memdatabase/v1/qlen.proto";
+import "memdatabase/v1/range.proto";
+import "memdatabase/v1/sadd.proto";
+import "memdatabase/v1/sdel.proto";
+import "memdatabase/v1/set.proto";
+import "memdatabase/v1/slen.proto";
+
+service MemoryDatabaseService {
+  // Set the value for the specified key.
+  rpc Set(SetRequest) returns (SetResponse);
+
+  // Get the value for the specified key.
+  rpc Get(GetRequest) returns (GetResponse);
+
+  // Push the value to the list specified by the key.
+  rpc Push(PushRequest) returns (PushResponse);
+
+  // Pop the value from the list specified by the key.
+  rpc Pop(PopRequest) returns (PopResponse);
+
+  // Count the number of items in the queue specified by the key.
+  rpc QLen(QLenRequest) returns (QLenResponse);
+
+  // Set the key/value pair for the specified key.
+  rpc DSet(DSetRequest) returns (DSetResponse);
+
+  // Get the value for the specified key.
+  rpc DGet(DGetRequest) returns (DGetResponse);
+
+  // Checks the key exists or not in the map specified by the key.
+  rpc DHas(DHasRequest) returns (DHasResponse);
+
+  // Set the value to the set specified by the key.
+  rpc SAdd(SAddRequest) returns (SAddResponse);
+
+  // Delete the value from the set specified by the key.
+  rpc SDel(SDelRequest) returns (SDelResponse);
+
+  // Gets the number of items in the set specified by the key.
+  rpc SLen(SLenRequest) returns (SLenResponse);
+
+  // Deletes the item specified by the key.
+  rpc Del(DelRequest) returns (DelResponse);
+
+  // Get the keys in the specified range.
+  rpc Range(RangeRequest) returns (stream RangeResponse);
+}

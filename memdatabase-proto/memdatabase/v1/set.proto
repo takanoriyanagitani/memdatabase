@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package memdatabase.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message SetRequest {
+  bytes key = 1;
+  google.protobuf.Value value = 2;
+}
+
+message SetResponse {
+  google.protobuf.Timestamp set_time = 1;
+}
