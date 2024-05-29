@@ -391,7 +391,7 @@ where
 {
     let lt: &T = bound2t(l)?;
     let ut: &T = bound2t(u)?;
-    Ok(lt.cmp(&ut))
+    Ok(lt.cmp(ut))
 }
 
 pub fn check_bound<T>(l: &Bound<T>, u: &Bound<T>) -> Result<(), Status>
