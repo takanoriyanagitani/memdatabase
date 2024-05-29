@@ -81,6 +81,23 @@ range() {
 			memdatabase.v1.MemoryDatabaseService/Range
 }
 
+varpush() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n queue0123 | base64)" \
+		-n '{ key: $key, value: "wrld", front: true }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/Push
+
+}
+
 varset
 range
 varget
+varpush
