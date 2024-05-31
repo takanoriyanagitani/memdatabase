@@ -129,8 +129,25 @@ varpopfront() {
 
 }
 
+qlen() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n queue0123 | base64)" \
+		-n '{ key: $key }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/QLen
+
+}
+
 varset
 range
 varget
 varpush
+qlen
 varpopfront
