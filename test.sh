@@ -145,9 +145,27 @@ qlen() {
 
 }
 
+dictset() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n dict0123 | base64)" \
+		--arg dkey "$(echo -n dkey0123 | base64)" \
+		-n '{ key: $key, dkey: $dkey, value: 3776.0 }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/DSet
+
+}
+
 varset
 range
 varget
 varpush
 qlen
 varpopfront
+dictset
