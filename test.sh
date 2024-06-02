@@ -162,6 +162,23 @@ dictset() {
 
 }
 
+dictget() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n dict0123 | base64)" \
+		--arg dkey "$(echo -n dkey0123 | base64)" \
+		-n '{ key: $key, dkey: $dkey }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/DGet
+
+}
+
 varset
 range
 varget
@@ -169,3 +186,4 @@ varpush
 qlen
 varpopfront
 dictset
+dictget
