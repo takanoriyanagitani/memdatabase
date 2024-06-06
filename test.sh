@@ -230,6 +230,23 @@ set_del() {
 
 }
 
+set_len() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n set0123 | base64)" \
+		--arg val "$(echo -n 3776 | base64)" \
+		-n '{ key: $key }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/SLen
+
+}
+
 varset
 range
 varget
@@ -240,5 +257,6 @@ dictset
 dictget
 dictfind
 set_add
-set_add
 set_del
+set_add
+set_len
