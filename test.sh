@@ -247,6 +247,22 @@ set_len() {
 
 }
 
+del_key() {
+
+	jaq \
+		-c \
+		--arg key "$(echo -n set0123 | base64)" \
+		-n '{ key: $key }' |
+		grpcurl \
+			-plaintext \
+			-import-path "${protodir}" \
+			-proto memdatabase/v1/svc.proto \
+			-d @ \
+			"${server}" \
+			memdatabase.v1.MemoryDatabaseService/Del
+
+}
+
 varset
 range
 varget
@@ -260,3 +276,4 @@ set_add
 set_del
 set_add
 set_len
+del_key
