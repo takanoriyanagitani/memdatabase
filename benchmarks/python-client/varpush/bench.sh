@@ -18,4 +18,14 @@ multi(){
   ENV_LIST_SIZE=131072 python3 multi.py
 }
 
-multi
+bulk(){
+  ENV_BYTE_SZ=1 python3 bulk.py
+  ENV_BYTE_SZ=16 python3 bulk.py
+  ENV_BYTE_SZ=128 python3 bulk.py
+  ENV_BYTE_SZ=1024 python3 bulk.py
+  ENV_BYTE_SZ=16384 python3 bulk.py
+  ENV_BYTE_SZ=131072 python3 bulk.py
+  ENV_BYTE_SZ=1048576 python3 bulk.py
+}
+
+bulk
