@@ -28,4 +28,14 @@ bulk(){
   ENV_BYTE_SZ=1048576 python3 bulk.py
 }
 
-bulk
+set_string(){
+  ENV_BYTE_SZ=1 python3 set.py
+  ENV_BYTE_SZ=16 python3 set.py
+  ENV_BYTE_SZ=128 python3 set.py
+  ENV_BYTE_SZ=1024 python3 set.py
+  ENV_BYTE_SZ=16384 python3 set.py
+  ENV_BYTE_SZ=131072 python3 set.py
+  ENV_BYTE_SZ=1048576 python3 set.py
+}
+
+set_string
