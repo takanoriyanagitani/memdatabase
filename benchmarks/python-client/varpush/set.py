@@ -27,7 +27,7 @@ def callback_new(stub, key=b"", val=b""):
     key=key,
     value=dict(string_value=val),
   )
-  return lambda: stub.Push(req)
+  return lambda: stub.Set(req)
 
 with grpc.insecure_channel(addr) as chan:
   stub = memdatabase.v1.svc_pb2_grpc.MemoryDatabaseServiceStub(chan)
