@@ -38,4 +38,12 @@ set_string(){
   ENV_BYTE_SZ=1048576 python3 set.py
 }
 
-set_string
+dset_values_ordered(){
+  ENV_DKEY_CNT=1 python3 dset.py
+  ENV_DKEY_CNT=16 python3 dset.py
+  ENV_DKEY_CNT=128 python3 dset.py
+  ENV_DKEY_CNT=1024 python3 dset.py
+  ENV_DKEY_CNT=16384 python3 dset.py
+}
+
+dset_values_ordered
